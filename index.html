@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ht"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SABOTAY</title><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#14532d">
+<style>
+:root{--bg:#f4f6f3;--cd:#fff;--tx:#16201a;--mu:#68756c;--ln:#dde3de;--gr:#1f9d55;--gb:#d9f1e2;--ac:#14532d;--hl:#fff3c4;--hd:#eef2ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1511;--cd:#18211b;--tx:#e8efe9;--mu:#92a198;--ln:#2a362d;--gr:#3ec97b;--gb:#1d4a2e;--ac:#7be0a4;--hl:#4a3f12;--hd:#202b23}}
+:root[data-theme="dark"]{--bg:#0f1511;--cd:#18211b;--tx:#e8efe9;--mu:#92a198;--ln:#2a362d;--gr:#3ec97b;--gb:#1d4a2e;--ac:#7be0a4;--hl:#4a3f12;--hd:#202b23}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.4 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:12px 12px 40px;max-width:1200px;margin:0 auto}
+h1{font:800 22px/1 Georgia,"Times New Roman",serif;letter-spacing:.14em;color:var(--ac);margin:4px 0 12px}
+h1 small{font:500 12px system-ui;letter-spacing:0;color:var(--mu);margin-left:8px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:12px}
+.k{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:10px 12px}
+.k span{display:block;font-size:12px;color:var(--mu)}.k b{font-size:24px}
+.bar{height:6px;background:var(--ln);border-radius:9px;margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--gr)}
+.tabs{display:flex;gap:6px;margin:8px 0}
+button,input,select{font:inherit;color:var(--tx)}
+button{background:var(--cd);border:1px solid var(--ln);border-radius:10px;padding:8px 12px;cursor:pointer}
+button.on,button.pri{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+button.dg{color:#c0392b}
+input,textarea{background:var(--cd);border:1px solid var(--ln);border-radius:10px;padding:8px 10px;width:100%}
+select{background:var(--cd);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:8px;font:inherit;max-width:100%}
+.bx{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0;align-items:center}
+.sec{display:none}.sec.on{display:block}
+.w{overflow:auto;border:1px solid var(--ln);border-radius:14px;background:var(--cd);max-height:72vh;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+table{border-collapse:separate;border-spacing:0}
+th,td{border-right:1px solid var(--ln);border-bottom:1px solid var(--ln);text-align:center;min-width:42px;height:42px;padding:0}
+thead th{position:sticky;background:var(--hd);z-index:2;font-weight:600;font-size:12px}
+thead tr:first-child th{top:0;height:30px;text-align:left;padding-left:10px;font-size:13px;color:var(--ac)}
+thead tr:nth-child(2) th{top:30px;height:44px;line-height:1.15}
+thead th small{display:block;font-weight:400;color:var(--mu);font-size:10px}
+th.nm{position:sticky;left:0;z-index:3;min-width:128px;max-width:128px;text-align:left;padding:0 8px;background:var(--hd);cursor:pointer;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+thead th.nm{z-index:4;top:0}
+th.nm b{float:right;background:var(--gb);color:var(--ac);border-radius:8px;padding:1px 7px;font-size:12px;margin-top:5px}
+td{cursor:pointer;font-weight:800;font-size:18px;color:var(--gr)}
+td.p{background:var(--gb)}td.a{outline:2px dashed var(--ac);outline-offset:-3px;background:var(--hl)}
+td.o{opacity:.45}th.td2{background:var(--hl)!important}thead th.rd{color:#e5383b!important;background:rgba(229,56,59,.16)!important;font-weight:800}thead th.rd small{color:#e5383b}
+.row{display:flex;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--ln)}
+.row div{flex:1}.row small{color:var(--mu)}
+dialog{border:1px solid var(--ln);border-radius:16px;background:var(--cd);color:var(--tx);width:min(92vw,520px);max-height:86vh}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+.ch{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.ch span{background:var(--gb);color:var(--ac);border-radius:8px;padding:3px 8px;font-size:13px}
+.st{display:grid;grid-template-columns:1fr 1fr;gap:6px}.st .k b{font-size:20px}
+textarea{min-height:130px;font:12px monospace}
+.cd{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:12px;margin-bottom:10px}
+@media print{body>*:not(#pr){display:none}#pr{display:block!important}}
+#pr{display:none}
+</style></head><body>
+<h1>SABOTAY<small id="cl"></small></h1>
+<div class="g" id="dash"></div>
+<div class="tabs"><button data-t="t1" class="on">Tablo</button><button data-t="t2">Moun</button><button data-t="t4">Kòb</button><button data-t="t3">Done</button></div>
+
+<div class="sec on" id="t1">
+ <div class="bx" id="mb"></div>
+ <div class="bx"><button id="pv">◀ 7 jou</button><button id="td" class="pri">Jodi a</button><button id="nx">7 jou ▶</button><input id="q" placeholder="Chèche yon non…" style="flex:1;min-width:120px"></div>
+ <div class="w" id="w"><table id="tb"></table></div>
+ <p style="color:var(--mu);font-size:13px">Tape yon kazye pou mete <b>P</b>. Kazye ki gen kontou jòn lan se pwochen dat ki poko peye. Tape yon P ankò pou retire l.</p>
+</div>
+
+<div class="sec" id="t2">
+ <div class="cd"><b>Ajoute yon moun</b>
+  <div class="bx"><input id="an" placeholder="Non konplè" style="flex:2;min-width:140px"><input id="aa" placeholder="Nimewo / montan (opsyonèl)" style="flex:1;min-width:120px"><button class="pri" id="ad">Ajoute</button></div></div>
+ <input id="q2" placeholder="Chèche…" style="margin-bottom:6px"><div id="pl"></div>
+ <div class="cd" id="tr" style="margin-top:12px"></div>
+</div>
+
+<div class="sec" id="t4">
+ <div class="cd"><b>Paramèt kòb</b>
+  <div class="bx"><label style="flex:1;min-width:140px"><small>Kòb pa pati chak jou (HTG)</small><input type="number" id="rt" min="0"></label>
+  <label style="flex:1;min-width:110px"><small>Yon moun touche chak … jou</small><input type="number" id="cn" min="1"></label>
+  <label style="flex:1;min-width:150px"><small>Premye touche kòmanse</small><input type="date" id="cs"></label></div>
+  <small style="color:var(--mu)">Chak moun peye: kòb pa pati × nimewo bò non li. Ou ka mete yon kòb espesyal pou yon moun nan Moun → Modifye. Moun ki touche a resevwa tout sa tout moun peye pandan jou sa yo, dapre lòd non yo nan lis la.</small></div>
+ <div class="cd" id="kb"></div>
+</div>
+
+<div class="sec" id="t3">
+ <div class="cd"><b>Premye jou kalkil</b><div class="bx"><input type="date" id="sd" style="max-width:190px"><small style="color:var(--mu)">Jou anvan dat sa a pa konte nan atant yo.</small></div></div>
+ <div class="cd"><b>Backup / Retabli</b><p style="color:var(--mu);margin:4px 0">Kopye kòd la epi kenbe l yon kote ki sèten. Pou retabli, kole l la epi peze Retabli.</p>
+  <textarea id="bk"></textarea>
+  <div class="bx"><button id="bc">Kopye</button><button id="br" class="dg">Retabli</button></div></div>
+ <div class="cd"><b>Enstale kòm aplikasyon</b><p style="color:var(--mu);margin:4px 0">Louvri lyen SABOTAY nan Chrome, peze meni a (⋮), chwazi « Add to Home screen » / « Enstale aplikasyon ». Li ap louvri sou ekran telefòn lan tankou yon aplikasyon.</p></div>
+ <div class="cd"><b>Ekspòte</b><p style="color:var(--mu);margin:4px 0">Excel: kopye tablo a epi kole l nan Excel. PDF: enprime epi chwazi « Save as PDF ».</p>
+  <div class="bx"><button id="ex">Kopye pou Excel</button><button id="pf">Enprime / PDF</button></div></div>
+</div>
+<div id="pr"></div>
+<dialog id="dl"></dialog>
+
+<script>
+const $=s=>document.querySelector(s),KEY='sabotay.v1';
+const MO=['Janvye','Fevriye','Mas','Avril','Me','Jen','Jiyè','Out','Septanm','Oktòb','Novanm','Desanm'],WD=['Dim','Len','Mad','Mèk','Jed','Van','Sam'];
+const pad=n=>String(n).padStart(2,'0'),ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const now=new Date(),Y0=now.getMonth()>=8?now.getFullYear():now.getFullYear()-1,TK=ymd(now);
+const D=[];for(let d=new Date(Y0,8,1);d<=new Date(Y0+1,0,31);d.setDate(d.getDate()+1)){D.push({k:ymd(d),d:d.getDate(),m:d.getMonth(),w:d.getDay(),y:d.getFullYear()})}
+const ti=Math.min(Math.max(D.findIndex(x=>x.k===TK),0),D.length-1),todayIn=D.some(x=>x.k===TK);
+const fmt=i=>WD[D[i].w]+' '+D[i].d+' '+MO[D[i].m];
+let S=null;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!S||!Array.isArray(S.people)){
+ const seed=[['Reginald',''],['Bertho',4],['Grimèl',3],['Osilya',1],['Edris',2],['Bethlie',1],['Mikey',1],['RoRo',1],['Divenson',2],['Sylvest',2],['Reginal',1],['Edouard',2],['MeMene',2],['Nanoune',1],['Jaspèr',2],['Sonson',3]];
+ S={people:seed.map((s,i)=>({id:'p'+(i+1),name:s[0],amt:String(s[1])})),pay:{},start:D[0].k,n:seed.length+1}}
+S.n=S.n||100;S.start=S.start||D[0].k;
+if(S.v!==2){S.v=2;const e8=D.findIndex(x=>x.k===Y0+'-11-08');S.people.forEach(p=>{for(let i=0;i<=e8;i++)S.pay[p.id+'|'+D[i].k]=1});try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+S.rate=S.rate??100;S.cd=S.cd||3;S.cs=S.cs||D[0].k;S.got=S.got||{};S.who=S.who||{};S.cdt=S.cdt||{};
+if((S.v||0)<3){S.v=3;S.cs=Y0+'-09-23';S.cdt={}}
+const money=n=>Math.round(n).toLocaleString('fr-FR')+' HTG',sh=i=>D[i].d+' '+MO[D[i].m].slice(0,3);
+const daily=p=>(p.pd!==undefined&&p.pd!=='')?(+p.pd||0):S.rate*(parseFloat(p.amt)||1);
+function cycles(){const ps=S.people.filter(p=>!p.del),r=[];let s=Math.max(0,D.findIndex(x=>x.k>=S.cs)),k=0;const amt=ps.reduce((a,p)=>a+daily(p),0)*S.cd;while(s<D.length&&ps.length){const e=Math.min(s+S.cd-1,D.length-1),w=ps.find(p=>p.id===S.who[k])||ps[k%ps.length];let di=D.findIndex(x=>x.k===S.cdt[k]);if(di<0)di=s;r.push({k,s,e,who:w.name,wid:w.id,di,amt});s+=S.cd;k++}return r}
+const nxt=cy=>cy.find(c=>!S.got[c.k]&&c.di>=ti)||cy.find(c=>!S.got[c.k]);
+function tch(id,cy){const n=nxt(cy),c=cy.find(c=>c.wid===id&&!S.got[c.k]&&c.di>=ti)||cy.find(c=>c.wid===id&&!S.got[c.k]);return c?(c===n?'★ ':'')+'touche '+sh(c.di):''}
+function nextPay(){const c=nxt(cycles());return c?esc(c.who)+' <small>'+sh(c.di)+' · '+money(c.amt)+'</small>':'—'}
+function kob(){const cy=cycles(),n=nxt(cy),ps=live();$('#kb').innerHTML='<div class="k" style="margin-bottom:8px"><span>Kiyès kap touche aprè</span><b>'+(n?esc(n.who)+' · '+sh(n.di):'—')+'</b></div><b>Kalandriye touche</b>'+cy.map(x=>'<div class="row" style="flex-wrap:wrap;'+(x===n?'background:var(--hl);border-radius:8px;padding:8px':'')+'"><div style="flex:1;min-width:150px"><small>#'+(x.k+1)+' · '+sh(x.s)+' → '+sh(x.e)+' · '+money(x.amt)+(x===n?' · ★ PWOCHEN':'')+'</small><br><select data-w="'+x.k+'">'+ps.map(p=>'<option value="'+p.id+'"'+(p.id===x.wid?' selected':'')+'>'+esc(p.name)+'</option>').join('')+'</select></div><input type="date" data-dt="'+x.k+'" value="'+D[x.di].k+'" style="width:150px"><button data-g="'+x.k+'" class="'+(S.got[x.k]?'on':'')+'">'+(S.got[x.k]?'✔ Touche':'Poko touche')+'</button></div>').join('')}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const live=()=>S.people.filter(p=>!p.del);
+const si=()=>Math.max(0,D.findIndex(x=>x.k>=S.start));
+const paid=(p,i)=>!!S.pay[p+'|'+D[i].k];
+function act(p){let l=-1;for(let i=0;i<D.length;i++)if(paid(p,i))l=i;let i=l+1;while(i<D.length&&paid(p,i))i++;return Math.min(i,D.length-1)}
+function stats(p){let a=0,r=0;D.forEach((x,i)=>{if(paid(p,i)){a++;if(i>=si()&&i<=ti)r++}});const e=Math.max(0,ti-si()+1);return{tot:a,inr:r,exp:e,rem:Math.max(0,e-r),pc:e?Math.min(100,Math.round(100*r/e)):0}}
+function dash(){const ps=live();let rec=0,inr=0,hp=0;ps.forEach(p=>{const s=stats(p.id);rec+=s.tot;inr+=s.inr;if(s.tot)hp++});
+ let col=0;ps.forEach(p=>col+=stats(p.id).tot*daily(p));const e=ps.length*Math.max(0,ti-si()+1),pc=e?Math.min(100,Math.round(100*inr/e)):0;
+ $('#dash').innerHTML=[['Moun anrejistre',ps.length],['Peman anrejistre',rec],['Peman ki espere',e],['Moun ki peye',hp],['Peman an atant',Math.max(0,e-inr)],['Kòb kolekte',money(col)],['Pwochen touche',nextPay()]].map(x=>'<div class="k"><span>'+x[0]+'</span><b>'+x[1]+'</b></div>').join('')+'<div class="k"><span>Pwogrè jeneral</span><b>'+pc+'%</b><div class="bar"><i style="width:'+pc+'%"></i></div></div>';
+ $('#cl').textContent=now.getDate()+' '+MO[now.getMonth()]+' '+now.getFullYear()}
+function table(){const cy=cycles(),tk=new Set(cy.map(c=>D[c.di].k)),q=$('#q').value.toLowerCase(),ps=live().filter(p=>p.name.toLowerCase().includes(q));
+ let h='<thead><tr><th class="nm" rowspan="2">Non</th>',mm=[];
+ D.forEach((x,i)=>{const l=mm[mm.length-1];if(l&&l.m===x.m)l.n++;else mm.push({m:x.m,n:1,y:x.y,i})});
+ h+=mm.map(m=>'<th id="m'+m.m+'" colspan="'+m.n+'">'+MO[m.m]+' '+m.y+'</th>').join('')+'</tr><tr>';
+ h+=D.map(x=>'<th class="'+(x.k===TK?'td2 ':'')+(tk.has(x.k)?'rd':'')+'">'+x.d+'<small>'+WD[x.w]+'</small></th>').join('')+'</tr></thead><tbody>';
+ h+=ps.map(p=>{const a=act(p.id);return '<tr><th class="nm" data-r="'+p.id+'">'+(p.amt?'<b>'+esc(p.amt)+'</b>':'')+esc(p.name)+'<small style="display:block;font-size:10px;color:var(--mu);line-height:1.1">'+tch(p.id,cy)+'</small></th>'+D.map((x,i)=>'<td data-p="'+p.id+'" data-i="'+i+'" class="'+(paid(p.id,i)?'p ':'')+(i===a?'a ':'')+(i<si()?'o':'')+'">'+(paid(p.id,i)?'P':'')+'</td>').join('')+'</tr>'}).join('');
+ $('#tb').innerHTML=h+'</tbody>';
+ $('#mb').innerHTML=mm.map(m=>'<button data-m="'+m.m+'">'+MO[m.m]+'</button>').join('')}
+function plist(){const q=$('#q2').value.toLowerCase();
+ $('#pl').innerHTML=live().filter(p=>p.name.toLowerCase().includes(q)).map(p=>'<div class="row"><div><b>'+esc(p.name)+'</b> <small>'+(p.amt?'· '+esc(p.amt):'')+' · '+money(daily(p))+'/jou · '+stats(p.id).tot+' P</small></div><button data-r="'+p.id+'">Rapò</button><button data-e="'+p.id+'">Modifye</button><button class="dg" data-x="'+p.id+'">Efase</button></div>').join('')||'<p style="color:var(--mu)">Pa gen moun.</p>';
+ const t=S.people.filter(p=>p.del);$('#tr').innerHTML='<b>Pwoteje kont efase yo</b><p style="color:var(--mu);margin:4px 0">Moun ou efase yo rete isit la ak tout P yo. Ou ka retabli yo.</p>'+(t.map(p=>'<div class="row"><div>'+esc(p.name)+'</div><button data-u="'+p.id+'">Retabli</button></div>').join('')||'<small style="color:var(--mu)">Pa gen anyen.</small>')}
+function all(){dash();table();plist();kob();$('#rt').value=S.rate;$('#cn').value=S.cd;$('#cs').value=S.cs;$('#sd').value=S.start;$('#bk').value=JSON.stringify(S)}
+function keep(el){if(!el)return;const w=$('#w').getBoundingClientRect(),r=el.getBoundingClientRect();if(r.left<w.left+135||r.right>w.right)$('#w').scrollLeft+=r.left-w.left-w.width/2}
+function tap(p,i){const k=p+'|'+D[i].k;
+ if(S.pay[k]){if(!confirm('Retire P sa a ('+fmt(i)+') ?'))return;delete S.pay[k]}else S.pay[k]=1;
+ save();all();keep(document.querySelector('td.a[data-p="'+p+'"]'))}
+function goto(i){const w=$('#w'),c=document.querySelector('tbody tr td[data-i="'+i+'"]');if(c)w.scrollLeft=c.offsetLeft-140}
+function report(id){const p=S.people.find(x=>x.id===id),s=stats(id),ds=D.map((x,i)=>paid(id,i)?i:-1).filter(i=>i>=0);
+ dl('<h3 style="margin-top:0">'+esc(p.name)+(p.amt?' <small style="color:var(--mu)">· '+esc(p.amt)+'</small>':'')+'</h3><div class="st"><div class="k"><span>Peman ki espere</span><b>'+s.exp+'</b></div><div class="k"><span>Peman fèt</span><b>'+s.tot+'</b></div><div class="k"><span>Ki rete</span><b>'+s.rem+'</b></div><div class="k"><span>Kòb li peye</span><b>'+money(s.tot*daily(p))+'</b></div><div class="k"><span>Pwogrè</span><b>'+s.pc+'%</b><div class="bar"><i style="width:'+s.pc+'%"></i></div></div></div><b>Dat li peye yo</b><div class="ch">'+(ds.map(i=>'<span>'+fmt(i)+'</span>').join('')||'<small style="color:var(--mu)">Poko gen peman.</small>')+'</div><div class="bx"><button class="pri" onclick="$(\'#dl\').close()">Fèmen</button></div>')}
+function dl(h){$('#dl').innerHTML=h;$('#dl').showModal()}
+function edit(id){const p=S.people.find(x=>x.id===id);dl('<h3 style="margin-top:0">Modifye</h3><div class="bx"><input id="en" value="'+esc(p.name)+'"><input id="ea" value="'+esc(p.amt||'')+'" placeholder="Nimewo / montan"><input id="ed" value="'+esc(p.pd??'')+'" placeholder="Kòb chak jou (opsyonèl)"></div><div class="bx"><button class="pri" id="es">Anrejistre</button><button onclick="$(\'#dl\').close()">Anile</button></div>');
+ $('#es').onclick=()=>{const n=$('#en').value.trim();if(!n)return;p.name=n;p.amt=$('#ea').value.trim();p.pd=$('#ed').value.trim();save();all();$('#dl').close()}}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-t],[data-m],[data-p],[data-r],[data-e],[data-x],[data-u],[data-g]');if(!t)return;const d=t.dataset;
+ if(d.t){document.querySelectorAll('.sec').forEach(s=>s.classList.toggle('on',s.id===d.t));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b===t))}
+ else if(d.m!==undefined){const h=$('#m'+d.m);$('#w').scrollLeft=h.offsetLeft-130}
+ else if(d.p)tap(d.p,+d.i);else if(d.r)report(d.r);else if(d.e)edit(d.e);
+ else if(d.x){const p=S.people.find(x=>x.id===d.x);if(confirm('Efase '+p.name+' ? Peman li yo ap rete an sekirite epi ou ka retabli l.')){p.del=1;save();all()}}
+ else if(d.u){S.people.find(x=>x.id===d.u).del=0;save();all()}
+ else if(d.g){S.got[d.g]=!S.got[d.g];save();all()}});
+$('#ad').onclick=()=>{const n=$('#an').value.trim();if(!n)return;S.people.push({id:'p'+(S.n++),name:n,amt:$('#aa').value.trim()});$('#an').value=$('#aa').value='';save();all()};
+$('#q').oninput=table;$('#q2').oninput=plist;
+$('#td').onclick=()=>goto(ti);$('#pv').onclick=()=>$('#w').scrollLeft-=294;$('#nx').onclick=()=>$('#w').scrollLeft+=294;
+$('#sd').onchange=e=>{S.start=e.target.value||D[0].k;save();all()};
+$('#bc').onclick=async()=>{const t=$('#bk');t.select();try{await navigator.clipboard.writeText(t.value)}catch(e){document.execCommand('copy')}};
+$('#br').onclick=()=>{try{const o=JSON.parse($('#bk').value);if(!Array.isArray(o.people)||typeof o.pay!=='object')throw 0;if(!confirm('Sa ap ranplase tout done aktyèl yo. Kontinye ?'))return;S=o;save();all()}catch(e){alert('Kòd backup la pa valab.')}};
+function csv(){let r=[['Non','Nimewo'].concat(D.map(x=>x.d+'/'+(x.m+1)))];live().forEach(p=>r.push([p.name,p.amt||''].concat(D.map((x,i)=>paid(p.id,i)?'P':''))));return r}
+$('#ex').onclick=async()=>{const t=csv().map(r=>r.join('\t')).join('\n');try{await navigator.clipboard.writeText(t);alert('Kopye. Kole l nan Excel.')}catch(e){alert('Kopi a echwe.')}};
+$('#pf').onclick=()=>{$('#pr').innerHTML='<h2>SABOTAY</h2><table style="font-size:7px;border-collapse:collapse">'+csv().map(r=>'<tr>'+r.map(c=>'<td style="border:1px solid #999;min-width:0;height:auto;padding:1px 2px;font-size:7px">'+esc(c)+'</td>').join('')+'</tr>').join('')+'</table>';try{window.print()}catch(e){alert('Enprimant pa disponib isit la.')}};
+$('#rt').onchange=e=>{S.rate=Math.max(0,+e.target.value||0);save();all()};
+$('#cn').onchange=e=>{S.cd=Math.max(1,Math.round(+e.target.value||3));save();all()};
+$('#cs').onchange=e=>{S.cs=e.target.value||D[0].k;save();all()};
+document.addEventListener('change',e=>{const d=e.target.dataset;if(d.w!==undefined){S.who[d.w]=e.target.value;save();all()}else if(d.dt!==undefined){if(e.target.value)S.cdt[d.dt]=e.target.value;else delete S.cdt[d.dt];save();all()}});
+all();setTimeout(()=>goto(Math.max(0,ti-2)),50);
+</script></body></html>
